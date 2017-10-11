@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ x$MOBILE_LITE_HOME = x ]; then
+    echo "Set MOBILE_LITE_HOME"
+elif [ x$JAVA_HOME = x ]; then
+    echo "Set JAVA_HOME"
+elif [ x$SYNC_HOME = x ]; then
+    echo "Set SYNC_HOME"
+else
+    java -jar $SYNC_HOME/bin/jdemoapp.jar $*
+fi

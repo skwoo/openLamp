@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+   
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"  >
+        
+         <TableRow>            
+             <EditText
+                android:id="@+id/editText11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:layout_span="2"                
+                android:text="mSync Server" />
+        </TableRow>        
+        <TableRow>            
+             <EditText
+                android:id="@+id/editText12"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="IP" />
+            <EditText
+		        android:id="@+id/ed_ip"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:ems="10"
+		        android:inputType="text"
+		        android:digits="0123456789."
+		        android:hint = "127.0.0.1"		       
+		        android:text = ""  />    
+        </TableRow>
+        <TableRow>            
+             <EditText
+                android:id="@+id/editText13"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="Port No." />
+            <EditText
+		        android:id="@+id/ed_port"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="1"
+		        android:ems="10"
+		        android:inputType="number"
+		        android:text = ""  />    
+        </TableRow>
+         <TableRow>            
+             <EditText
+                android:id="@+id/editText14"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="timeout" />
+            <EditText
+		        android:id="@+id/ed_timeout"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="1"
+		        android:ems="10"
+		        android:inputType="number"
+		        android:hint="second!" 
+		        android:text = ""  />    
+        </TableRow>
+        <TableRow>            
+             <EditText
+                android:id="@+id/editText15"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="User" />
+            <EditText
+		        android:id="@+id/ed_user"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="1"
+		        android:ems="10"		        
+		        android:inputType="textPersonName"
+		        android:text = ""  />    
+        </TableRow>
+        <TableRow>            
+             <EditText
+                android:id="@+id/editText16"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="passwd" />
+            <EditText
+		        android:id="@+id/ed_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="1"
+		        android:ems="10"
+		        android:inputType="textPassword"
+		        android:text = ""  />    
+        </TableRow>  
+        <TableRow>            
+             <EditText
+                android:id="@+id/editText17"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="mode" />
+             <CheckBox
+		        android:id="@+id/chk_fullsync"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Full-Sync" />
+
+        </TableRow>
+        <TableRow>      
+             <EditText
+                android:id="@+id/editText18"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="재생성" />      
+              <Button
+		        android:id="@+id/bt_conf_create"
+		        style="?android:attr/buttonStyleSmall"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:onClick="ConfClickHandler"
+		        android:text="@string/bt_createdb" />              
+        </TableRow>        
+    </TableLayout>    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+        
+        <Button
+        android:id="@+id/bt_conf_ok"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ConfClickHandler"
+        android:text="@string/bt_save" />
+
+        <Button
+            android:id="@+id/bt_conf_cancel"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ConfClickHandler"
+            android:text="@string/bt_cancel" />
+    </LinearLayout>
+
+   
+</LinearLayout>

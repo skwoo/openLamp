@@ -1,0 +1,694 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Admin.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.kor\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Admin.ico"
+IDR_ADMINTYPE           ICON    DISCARDABLE     "res\\AdminDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DISPLAYTAB          BITMAP  DISCARDABLE     "res\\DispTable.bmp"
+IDB_OPEN_SEL            BITMAP  DISCARDABLE     "res\\open_sel.bmp"
+IDB_CLOSED              BITMAP  DISCARDABLE     "res\\closed.bmp"
+IDB_APPLICATION         BITMAP  DISCARDABLE     "res\\applicat.bmp"
+IDB_DB                  BITMAP  DISCARDABLE     "res\\DB.bmp"
+IDB_TABLE               BITMAP  DISCARDABLE     "res\\Table.bmp"
+IDB_FOLDER              BITMAP  DISCARDABLE     "res\\folder.bmp"
+IDR_MAINFRAME           BITMAP  DISCARDABLE     "res\\Toolbar.bmp"
+IDB_TREEDB              BITMAP  DISCARDABLE     "res\\treedb.bmp"
+IDB_TREEAPP             BITMAP  DISCARDABLE     "res\\treeapp.bmp"
+IDB_TREEFILE            BITMAP  DISCARDABLE     "res\\treefile.bmp"
+IDB_TREEUPGRADE         BITMAP  DISCARDABLE     "res\\treeupgr.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "데이터베이스(&F)"
+    BEGIN
+        MENUITEM "연결 환경 설정(&N)\tCtrl+O",  ID_MENU_DBCONNECT
+        MENUITEM "연결 환경 해제(&D)\tCtrl+D",  ID_MENU_DBDISCONNECT
+        MENUITEM "DSN 생성(&S)\tCtrl+C",        ID_MENU_CREATEDSN
+        MENUITEM SEPARATOR
+        MENUITEM "종료(&X)",                    ID_APP_EXIT
+    END
+    POPUP "등록(&E)"
+    BEGIN
+        MENUITEM "사용자 등록(&U)\tCtrl+U",     ID_MENU_REGUSERPROFILE
+        MENUITEM SEPARATOR
+        MENUITEM "Sync Script 등록(&T)\tCtrl+S", ID_MENU_REGSYNCSCRIPT
+    END
+    POPUP "보기(&V)"
+    BEGIN
+        MENUITEM "도구 모음(&T)",               ID_VIEW_TOOLBAR
+        MENUITEM "상태 표시줄(&S)",             ID_VIEW_STATUS_BAR
+    END
+    POPUP "도움말(&H)"
+    BEGIN
+        MENUITEM "Admin 정보(&A)...",           ID_APP_ABOUT
+    END
+END
+
+IDR_USERMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "User Profile"
+    BEGIN
+        MENUITEM "Modify User",                 ID_MODIFY_USER
+        MENUITEM "Delete User",                 ID_DELETE_USER
+        MENUITEM SEPARATOR
+        MENUITEM "New User",                    ID_NEW_USER
+    END
+END
+
+IDR_APPMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Application"
+    BEGIN
+        MENUITEM "Modify Application Info",     ID_MODIFY_APP
+        MENUITEM "Delete Application",          ID_DELETE_APP
+        MENUITEM "Copy All Scripts To...",      ID_COPY_APP
+        MENUITEM SEPARATOR
+        MENUITEM "Add DSN",                     ID_ADD_DSN
+    END
+END
+
+IDR_DSNMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "DSN"
+    BEGIN
+        MENUITEM "Modify DSN Info",             ID_MODIFY_DSN
+        MENUITEM "Delete DSN",                  ID_DELETE_DSN
+        MENUITEM SEPARATOR
+        MENUITEM "Add Table",                   ID_ADD_TABLE
+    END
+END
+
+IDR_TABLEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Table"
+    BEGIN
+        MENUITEM "Modify Table Info",           ID_MODIFY_TABLE
+        MENUITEM "Delete Table",                ID_DELETE_TABLE
+        MENUITEM SEPARATOR
+        MENUITEM "Add Script",                  ID_ADD_SCRIPT
+    END
+END
+
+IDR_SCRIPTMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Script"
+    BEGIN
+        MENUITEM "Modify Script",               ID_MODIFY_SCRIPT
+        MENUITEM "Delete Script",               ID_DELETE_SCRIPT
+    END
+END
+
+IDR_SYNCSCRIPTMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Sync Script"
+    BEGIN
+        MENUITEM "New SyncScript",              ID_NEW_SYNCSCRIPT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_MENU_CREATEDSN,      VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_MENU_DBCONNECT,      VIRTKEY, CONTROL, NOINVERT
+    "D",            ID_MENU_DBDISCONNECT,   VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_MENU_REGSYNCSCRIPT,  VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_MENU_REGUSERPROFILE, VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 255, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "openMSyncAdmin 정보"
+FONT 9, "굴림"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Admin 버전 1.0",IDC_VERSION,34,14,164,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2012 Inervit Co., Ltd.",
+                    IDC_STATIC,34,31,182,8
+    DEFPUSHBUTTON   "확인",IDOK,198,7,50,14,WS_GROUP
+END
+
+IDD_CONNECTDLG DIALOG DISCARDABLE  0, 0, 187, 115
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Server DB Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,82,94,44,14
+    PUSHBUTTON      "Cancel",IDCANCEL,136,94,44,14
+    COMBOBOX        IDC_DSNNAME,82,24,92,68,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_LOGINID,82,41,92,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PWD,82,58,92,13,ES_PASSWORD | ES_AUTOHSCROLL
+    GROUPBOX        " DB의 접속 환경 설정 ",IDC_STATIC,7,7,174,76
+    RTEXT           "Data Source Name : ",IDC_STATIC,10,25,70,10
+    RTEXT           "Login ID : ",IDC_STATIC,10,42,70,10
+    RTEXT           "Password : ",IDC_STATIC,10,59,70,10
+    PUSHBUTTON      "Create DSN >>",IDC_CREATE,6,94,57,14
+END
+
+IDD_USERDLG DIALOG DISCARDABLE  0, 0, 191, 173
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " User Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_USERID,84,30,92,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PWD,84,47,92,13,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_CPWD,84,64,92,13,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_NAME,84,81,92,13,ES_AUTOHSCROLL
+    CONTROL         "DB Sync Time",IDC_DBSYNC,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,117,65,13
+    DEFPUSHBUTTON   "OK",IDOK,75,152,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,134,152,50,14
+    GROUPBOX        " 새 User 등록",IDC_USERINFO,7,7,177,137
+    RTEXT           "User ID : ",IDC_STATIC,16,32,67,11
+    RTEXT           "Password : ",IDC_STATIC,16,49,67,11
+    RTEXT           "Confirm Password : ",IDC_STATIC,16,66,67,11
+    RTEXT           "Name : ",IDC_STATIC,16,83,67,11
+    GROUPBOX        " 동기화 시간을 초기화합니다 ",IDC_INIT,13,105,163,30
+END
+
+IDD_MODIFY_SCRIPTDLG DIALOG DISCARDABLE  0, 0, 251, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Modify Script..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SCRIPT,7,7,237,93,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    DEFPUSHBUTTON   "Save",IDOK,142,106,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,194,106,50,14
+END
+
+IDD_MODIFY_DSNDLG DIALOG DISCARDABLE  0, 0, 181, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Modify DSN..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_DSNNAME,74,29,92,101,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_DSNUID,74,46,92,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DSNPWD,74,63,92,13,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_CLIDSN,74,80,92,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Save",IDOK,72,114,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,124,114,50,14
+    GROUPBOX        " DSN 정보 수정 ",IDC_STATIC,7,7,167,99
+    RTEXT           " User ID : ",IDC_STATIC,36,47,34,13
+    RTEXT           "User Password : ",IDC_STATIC,13,64,57,13
+    RTEXT           " Server DSN : ",IDC_STATIC,23,30,47,13
+    RTEXT           " Client DSN : ",IDC_STATIC,15,81,55,13
+END
+
+IDD_APPDLG DIALOG DISCARDABLE  0, 0, 147, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Application Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_APPNAME,53,23,81,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_APPVER,53,40,81,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Save",IDOK,36,74,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,90,74,50,14
+    GROUPBOX        " Application 정보 수정 ",IDC_APPINFO,7,7,133,59
+    RTEXT           " Name : ",IDC_STATIC,13,24,34,13
+    RTEXT           "Version : ",IDC_STATIC,13,41,34,13
+END
+
+IDD_MODIFY_TABLEDLG DIALOG DISCARDABLE  0, 0, 183, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Modify Table Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SVRTABNAME,89,23,81,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CLITABNAME,89,40,81,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Save",IDOK,74,74,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,126,74,50,14
+    GROUPBOX        " Table 정보 수정 ",IDC_STATIC,7,7,169,57
+    RTEXT           " Server Table Name : ",IDC_STATIC,10,24,75,13
+    RTEXT           "Client Table Name : ",IDC_STATIC,15,41,70,13
+END
+
+IDD_PANEL_APPDSNDLG DIALOG DISCARDABLE  0, 0, 238, 169
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Application & DSN Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_APPNAME,103,27,81,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_APPVER,103,43,81,13,ES_AUTOHSCROLL
+    COMBOBOX        IDC_DSNNAME,103,73,92,101,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_DSNUID,103,90,92,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DSNPWD,103,107,92,13,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_CLIDSN,103,124,92,13,ES_AUTOHSCROLL
+    GROUPBOX        " DSN 정보 추가",IDC_APPINFOADD,11,8,216,137,NOT 
+                    WS_VISIBLE
+    RTEXT           " Name : ",IDC_STATIC,65,28,34,13
+    RTEXT           "Version : ",IDC_STATIC,65,44,34,13
+    RTEXT           " User ID : ",IDC_STATIC,65,91,34,13
+    RTEXT           "User Password : ",IDC_STATIC,43,108,56,13
+    RTEXT           " Server DSN : ",IDC_STATIC,52,74,47,13
+    RTEXT           " Client DSN : ",IDC_STATIC,44,125,55,13
+    DEFPUSHBUTTON   "Save",IDOK,124,148,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Cancel",IDCANCEL,181,148,50,14,NOT WS_VISIBLE
+    GROUPBOX        " New Application 등록 ",IDC_APPINFONEW,7,0,224,147
+END
+
+IDD_PANEL_TABLEDLG DIALOG DISCARDABLE  0, 0, 275, 225
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Table Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_TABLELIST,12,57,115,155,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_CLITABLENAME,45,43,81,11,ES_AUTOHSCROLL
+    LISTBOX         IDC_COLUMNLIST,148,57,115,155,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "All Columns",IDC_ALLCOLUMNS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,195,44,52,10
+    LTEXT           "DSN",IDC_DSNNAME,59,29,129,10
+    GROUPBOX        " 테이블과 컬럼 선택 ",IDC_STATIC,0,0,275,224
+    LTEXT           "Application.Version",IDC_APPVERNAME,59,15,129,10
+    LTEXT           "Application : ",IDC_STATIC,12,15,44,10
+    LTEXT           "Tables :",IDC_STATIC,12,44,28,10
+    LTEXT           "Columns :",IDC_STATIC,148,44,39,10
+    LTEXT           "DSN          : ",IDC_STATIC,12,29,43,10
+END
+
+IDD_PANEL_SCRIPTDLG DIALOG DISCARDABLE  0, 0, 275, 225
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Script Info..."
+FONT 9, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SCRIPT,12,114,251,83,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "Save",IDOK,213,203,50,13
+    CONTROL         "Upload Insert",IDC_EVENT_I,"Button",BS_AUTORADIOBUTTON,
+                    169,48,65,10
+    CONTROL         "Upload Update",IDC_EVENT_U,"Button",BS_AUTORADIOBUTTON,
+                    169,59,65,10
+    CONTROL         "Upload Delete",IDC_EVENT_D,"Button",BS_AUTORADIOBUTTON,
+                    169,70,65,10
+    CONTROL         "Download Select",IDC_EVENT_F,"Button",
+                    BS_AUTORADIOBUTTON,169,81,65,10
+    CONTROL         "Download Delete",IDC_EVENT_R,"Button",
+                    BS_AUTORADIOBUTTON,169,92,65,10
+    GROUPBOX        " Event와 Script 생성 ",IDC_STATIC,0,0,275,224
+    LTEXT           "Application.Version",IDC_APPVERNAME,59,15,129,10
+    LTEXT           "Application : ",IDC_STATIC,12,15,44,10
+    CONTROL         "Tree1",IDC_TABCOLUMNTREE,"SysTreeView32",WS_BORDER | 
+                    WS_TABSTOP,12,52,123,54
+    GROUPBOX        "",IDC_STATIC,160,40,103,66
+    LTEXT           "선택한 Table과 Column",IDC_STATIC,12,41,82,10
+    LTEXT           "DSN",IDC_DSNNAME,59,29,129,10
+    LTEXT           "DSN          : ",IDC_STATIC,12,29,43,10
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Admin MFC 응용 프로그램\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Admin\0"
+            VALUE "LegalCopyright", "Copyright (C) 2003\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Admin.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Admin 응용 프로그램\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_CONNECTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        VERTGUIDE, 10
+        VERTGUIDE, 82
+        VERTGUIDE, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 108
+    END
+
+    IDD_USERDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        VERTGUIDE, 83
+        VERTGUIDE, 84
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDD_MODIFY_SCRIPTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_MODIFY_DSNDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        VERTGUIDE, 70
+        VERTGUIDE, 74
+        VERTGUIDE, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_APPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 140
+        VERTGUIDE, 47
+        VERTGUIDE, 53
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_MODIFY_TABLEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        VERTGUIDE, 85
+        VERTGUIDE, 89
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_PANEL_APPDSNDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        VERTGUIDE, 115
+        VERTGUIDE, 119
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+
+    IDD_PANEL_TABLEDLG, DIALOG
+    BEGIN
+        TOPMARGIN, 7
+    END
+
+    IDD_PANEL_SCRIPTDLG, DIALOG
+    BEGIN
+        VERTGUIDE, 141
+        VERTGUIDE, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  35, 35
+BEGIN
+    BUTTON      ID_MENU_DBCONNECT
+    BUTTON      ID_MENU_DBDISCONNECT
+    BUTTON      ID_MENU_CREATEDSN
+    SEPARATOR
+    BUTTON      ID_MENU_REGUSERPROFILE
+    SEPARATOR
+    BUTTON      ID_MENU_REGSYNCSCRIPT
+    SEPARATOR
+    BUTTON      ID_IP_TEXT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "mSync Admin\n\nAdmin\n\n\nAdmin.Document\nAdmin Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Admin"
+    AFX_IDS_IDLEMESSAGE     "준비"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MENU_DBCONNECT       "DB의 접속 환경을 설정합니다\nConnection Setup"
+    ID_MENU_DBDISCONNECT    "기 설정한 접속 환경 해제합니다\nFree Connection Setup"
+    ID_MENU_CREATEDSN       "새로 DSN을 생성합니다\nCreate DSN"
+    ID_MENU_REGUSERPROFILE  "User Profile을 등록합니다\nUser 등록"
+    ID_MENU_REGSYNCSCRIPT   "Sync에 사용될 Script를 등록합니다\nSync Script 등록"
+    ID_NEW_USER             "새로운 User를 등록합니다"
+    ID_MODIFY_USER          "User 정보를 수정합니다"
+    ID_DELETE_USER          "User를 삭제합니다"
+    ID_MODIFY_APP           "선택한 Application의 정보를 수정합니다"
+    ID_DELETE_APP           "선택한 Application을 삭제합니다"
+    ID_MODIFY_DSN           "선택한 DSN의 정보를 수정합니다"
+    ID_DELETE_DSN           "선택한 DSN을  삭제합니다"
+    ID_MODIFY_TABLE         "선택한 Table의 정보를 수정합니다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_DELETE_TABLE         "선택한 Table을 삭제합니다"
+    ID_ADD_DSN              "선택한 Application에 DSN을 추가합니다"
+    ID_ADD_TABLE            "선택한 DSN에 Table을 추가합니다"
+    ID_ADD_SCRIPT           "선택한 Table의 Script를 추가합니다"
+    ID_NEW_SYNCSCRIPT       "새로운 SyncScript를 작성합니다"
+    ID_COPY_APP             "선택한 Application의 모든 sync script를 다른 application으로 복사합니다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "프로그램 정보와 버전 정보, 저작권 정보를 표시합니다\n정보"
+    ID_APP_EXIT             "응용 프로그램을 종료하기 위해 문서를 저장할 것인지 묻습니다\n종료"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "다음 창으로 전환합니다\n다음 창"
+    ID_PREV_PANE            "이전 창으로 전환합니다\n이전 창"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "현재 열린 창을 나눕니다\n나누기"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "선택 부분을 지웁니다\n지우기"
+    ID_EDIT_CLEAR_ALL       "모든 것을 지웁니다\n모두 지우기"
+    ID_EDIT_REPEAT          "마지막으로 실행한 동작을 반복합니다\n반복"
+    ID_EDIT_REPLACE         "지정한 문자열을 다른 문자열로 바꿉니다\n바꾸기"
+    ID_EDIT_SELECT_ALL      "문서 전체를 선택합니다\n전체 선택"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "도구 모음을 보이거나 감춥니다\n도구 모음 전환"
+    ID_VIEW_STATUS_BAR      "상태 표시줄을 표시하거나 감춥니다\n상태 표시줄 전환"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "창의 크기를 변경합니다"
+    AFX_IDS_SCMOVE          "창의 위치를 변경합니다"
+    AFX_IDS_SCMINIMIZE      "창을 아이콘으로 줄여서 표시합니다"
+    AFX_IDS_SCMAXIMIZE      "창을 최대 크기로 확장합니다"
+    AFX_IDS_SCNEXTWINDOW    "다음 문서 창으로 전환합니다"
+    AFX_IDS_SCPREVWINDOW    "이전 문서 창으로 전환합니다"
+    AFX_IDS_SCCLOSE         "현재 열린 창을 닫고 문서를 저장할 것인지를 묻습니다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "창을 원래 크기로 복원합니다"
+    AFX_IDS_SCTASKLIST      "작업 목록을 활성화합니다"
+    IDS_MENU1               "User Manager"
+    IDS_MENU2               "SyncScript Manager"
+    IDS_MENU3               "Log Manager"
+    IDS_MENU1_SUB1          "User Profile"
+    IDS_MENU1_SUB2          "Connected Users"
+END
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE 18, 1
+#pragma code_page(949)
+#endif //_WIN32
+#include "res\Admin.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.kor\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

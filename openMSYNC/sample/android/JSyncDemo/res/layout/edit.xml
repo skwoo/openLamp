@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+     <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"  >
+            
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"         
+        android:stretchColumns="1"   >
+
+        <TableRow>
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="@string/ed_name" />
+
+            <EditText
+		        android:id="@+id/ed_name"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"		        
+		        android:ems="10"
+		        android:inputType="textPersonName"
+		        android:text = ""  />            
+        </TableRow>
+
+        <TableRow >            
+             <EditText
+                android:id="@+id/editText2"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="@string/ed_company" />   
+                
+             <EditText
+		        android:id="@+id/ed_company"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:ems="10"
+		        android:inputType="textPersonName"
+		        android:text = ""  />        
+        </TableRow>
+
+        <TableRow>             
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="center"
+                android:text="@string/ed_phnum1" />
+            
+              <EditText
+		        android:id="@+id/ed_phnum1"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:ems="10"
+		        android:inputType="phone" />
+        </TableRow>
+
+        <TableRow>            
+            <EditText
+               android:id="@+id/editText4"
+               android:layout_width="80dp"
+               android:layout_height="wrap_content"
+               android:editable="false"
+               android:focusable="false"
+               android:ems="10"
+               android:gravity="center"
+               android:text="@string/ed_phnum2" />      
+            <EditText
+		        android:id="@+id/ed_phnum2"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:ems="10"
+		        android:inputType="phone" />      
+        </TableRow>
+        
+        <TableRow>
+           <EditText
+              android:id="@+id/editText5"
+              android:layout_width="80dp"
+              android:layout_height="wrap_content"
+              android:editable="false"
+              android:focusable="false"
+              android:ems="10"
+              android:gravity="center"
+              android:text="@string/ed_email" />
+           
+            <EditText
+		        android:id="@+id/ed_email"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:ems="10"
+		        android:inputType="textEmailAddress" />
+       </TableRow>
+        
+       <TableRow>          
+          <EditText
+             android:id="@+id/editText6"
+             android:layout_width="80dp"
+             android:layout_height="wrap_content"
+             android:editable="false"
+             android:focusable="false"
+             android:ems="10"
+             android:gravity="center"
+             android:text="@string/ed_addr" />      
+         <EditText
+	         android:id="@+id/ed_addr"
+	         android:layout_width="match_parent"
+	         android:layout_height="wrap_content"
+	         android:ems="10"
+	         android:layout_weight="1"
+	         android:inputType="textPostalAddress" />	          
+      </TableRow>
+    </TableLayout>
+    </ScrollView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"        >
+
+        <Button
+            android:id="@+id/bt_ok"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="EditClickHandler"
+            android:text="@string/bt_save" />
+
+        <Button
+            android:id="@+id/bt_cancel"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="EditClickHandler"
+            android:text="@string/bt_cancel" />
+    </LinearLayout>   
+
+</LinearLayout>

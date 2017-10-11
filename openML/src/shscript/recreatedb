@@ -1,0 +1,35 @@
+#!/bin/sh
+
+#set -x
+
+ulimit -c unlimited
+
+if [ x$MOBILE_LITE_HOME = x ]; then
+    DESTROYDB=destroydb
+    CREATEDB=createdb
+else
+    DESTROYDB=$MOBILE_LITE_HOME/bin/destroydb
+    CREATEDB=$MOBILE_LITE_HOME/bin/createdb
+fi
+
+if [ $# -eq 1 ]; then
+    DBNAME="$1"
+
+    echo "$DESTROYDB $DBNAME"
+    $DESTROYDB $DBNAME -f
+
+    echo "createdb $DBNAME"
+    $CREATEDB $DBNAME
+elif [ $# -eq 2 ]; then
+    ENDIAN="$1"
+    DBNAME="$2"
+
+    echo "$DESTROYDB $DBNAME"
+    $DESTROYDB $DBNAME -f
+
+    echo "createdb $ENDIAN $DBNAME"
+    $CREATEDB $ENDIAN $DBNAME
+else
+    echo "Usage: $0 -b[l] <dbname>"
+    exit 1
+fi

@@ -1,0 +1,162 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:padding="3dip"
+    android:background="#7F000000" >
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:padding="3dip"
+        android:layout_marginBottom="3dip" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="DB name : " />
+
+            <EditText
+                android:id="@+id/editText_dbname"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="99"
+                android:inputType="text" >
+
+                <requestFocus />
+            </EditText>
+         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+		     <Button
+		         android:id="@+id/createButton"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_weight="25"
+		         android:textSize="13dip"
+		         android:text="Create" />
+            <Button
+                android:id="@+id/dropButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:textSize="13dip"
+                android:text="Drop" />		     
+            <Button
+                android:id="@+id/connectButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:textSize="13dip"
+                android:text="Connect" />
+            <Button
+                android:id="@+id/disconnectButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:enabled="false"
+                android:focusable="false"
+                android:textSize="13dip" 
+                android:text="Disconnect" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:padding="3dip"
+        android:layout_marginBottom="3dip" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status : " />
+            <TextView
+                android:id="@+id/textView_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="99" />
+    </LinearLayout>
+   
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:padding="3dip"
+        android:layout_marginBottom="3dip" >
+    	 
+    	 <EditText
+    	     android:id="@+id/editText_query"
+    	     android:layout_width="0dip"
+    	     android:layout_height="wrap_content"
+    	     android:layout_weight="99"
+    	     android:enabled="false"
+    	     android:inputType="text" />
+    	 <Button
+    	     android:id="@+id/queryButton"
+    	     android:layout_width="wrap_content"
+    	     android:layout_height="wrap_content"
+    	     android:layout_weight="1"
+    	     android:enabled="false"
+    	     android:focusable="false"
+    	     android:text="Query"
+    	     android:textSize="13dip" />
+		 
+    </LinearLayout>
+    
+
+    <HorizontalScrollView
+        android:id="@+id/resultScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/border"
+        android:padding="3dip"
+        android:layout_marginBottom="3dip" >
+    	 <LinearLayout
+    	     android:orientation="vertical"
+    	     android:layout_width="wrap_content"
+    	     android:layout_height="wrap_content">
+            <TableLayout
+                android:id="@+id/result_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:padding="3dip"
+                android:layout_marginBottom="3dip" >
+                
+            </TableLayout>
+            
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <TableLayout
+                    android:id="@+id/result_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:padding="3dip">
+                    
+                </TableLayout>
+                
+            </ScrollView>
+    
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+</LinearLayout>
