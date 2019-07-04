@@ -73,7 +73,7 @@ extern "C"
 
     typedef DB_INT64 bigint;
 
-#if defined(_GCC)
+#if 0 //defined(_GCC)
 #define MDB_INLINE inline
 #else
 #define MDB_INLINE
