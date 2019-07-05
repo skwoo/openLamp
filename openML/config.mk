@@ -18,5 +18,5 @@ JNI = 0
 # interactive prompt 
 HAVE_READLINE=0
 
-COMPILE_MODE = mode32
-COMPILER = gcc
+COMPILER = clang
+COMPILE_MODE = mode64

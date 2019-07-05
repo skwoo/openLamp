@@ -38,14 +38,15 @@ ifeq ($(OSNAME),SunOS)
             CMODE_REL = "-xO5 -D_REENTRANT -UMDB_DEBUG $(OPTION)"
             CMODE_PIC = -KPIC
             SYSLIBS = "-L/usr/lib/64 -lpthread -lsocket -lnsl -lm"
-        endif
-        ifeq ($(COMPILER),gcc)
+        else ifeq ($(COMPILER),gcc)
             CCBIN = "gcc -m64 -D_64BIT -D_GCC"
             LDBIN = "/usr/ccs/bin/ld -64 -G"
             CMODE_DBG = "-g -Wall -Wreturn-type -D_REENTRANT -DMDB_DEBUG $(OPTION)"
             CMODE_REL = "-O3 -D_REENTRANT -UMDB_DEBUG $(OPTION)"
             CMODE_PIC = -fPIC
             SYSLIBS = "-L/usr/lib/64 -lpthread -lsocket -lnsl -lm"
+	else
+	    echo "Undified COMPILER: $(COMPILER))"
         endif
     else
         ifeq ($(COMPILER),cc)
@@ -55,49 +56,46 @@ ifeq ($(OSNAME),SunOS)
             CMODE_REL = "-xO5 -UMDB_DEBUG -D_REENTRANT $(OPTION)"
             CMODE_PIC = -KPIC
             SYSLIBS = "-lpthread -lsocket -lnsl -lm"
-        endif
-        ifeq ($(COMPILER),ccache-cc)
+        else ifeq ($(COMPILER),ccache-cc)
             CCBIN = "ccache /opt/SUNWspro/bin/cc -mt -xCC"
             LDBIN = "/opt/SUNWspro/bin/cc -mt -G"
             CMODE_DBG = "-g -D_REENTRANT -DMDB_DEBUG $(OPTION)"
             CMODE_REL = "-xO5 -UMDB_DEBUG -D_REENTRANT $(OPTION)"
             CMODE_PIC = -KPIC
             SYSLIBS = "-lpthread -lsocket -lnsl -lm"
-        endif
-        ifeq ($(COMPILER),gcc)
+        else ifeq ($(COMPILER),gcc)
             CCBIN = "gcc -D_GCC"
             LDBIN = "ld -G"
             CMODE_DBG = "-g -Wall -D_REENTRANT -DMDB_DEBUG $(OPTION)"
             CMODE_REL = "-O3 -D_REENTRANT -UMDB_DEBUG $(OPTION)"
             CMODE_PIC = -fPIC
             SYSLIBS = "-lpthread -lsocket -lnsl -lm"
-        endif
-        ifeq ($(COMPILER),ccache-gcc)
+	else ifeq ($(COMPILER),ccache-gcc)
             CCBIN = "ccache gcc -m$B -D_GCC"
             LDBIN = "gcc -m$B -shared"
             CMODE_DBG = "-g -Wall -D_REENTRANT -DMDB_DEBUG $(OPTION)"
             CMODE_REL = "-O3 -D_REENTRANT -UMDB_DEBUG $(OPTION)"
             CMODE_PIC = -fPIC
             SYSLIBS = "-lpthread -lsocket -lnsl -lm"
-        endif
-        ifeq ($(COMPILER),gprof)
+        esle ifeq ($(COMPILER),gprof)
             CCBIN = "gcc -D_GCC -pg"
             LDBIN = "ld -G"
             CMODE_DBG = "-g -Wall -D_REENTRANT -DMDB_DEBUG $(OPTION)"
             CMODE_REL = "-D_REENTRANT -UMDB_DEBUG $(OPTION)"
             CMODE_PIC = -fPIC
             SYSLIBS = "-lpthread -lsocket -lnsl -lm"
-        endif
-        ifeq ($(COMPILER),lint)
+        else ifeq ($(COMPILER),lint)
             CCBIN = "lint"
             LDBIN = 
             CMODE_DBG = "-g -DMDB_DEBUG $(OPTION)"
             CMODE_REL = "-UMDB_DEBUG $(OPTION)"
             CMODE_PIC = 
             SYSLIBS = 
+	else
+	    echo "Undified COMPILER: $(COMPILER))"
         endif
     endif
-endif
+endif #SunOS
 
 ifeq ($(OSNAME),Linux)
     ifeq ($(COMPILER),gprof)
@@ -105,88 +103,47 @@ ifeq ($(OSNAME),Linux)
         LDBIN = "gcc -m$B -shared -pg"
         ARBIN = "ar"
         CCOPT =
-    else
-        ifeq ($(COMPILER),ppc860)
-            CCBIN = "ppc_8xx-g++ -D_GCC"
-            LDBIN = "ppc_8xx-g++ -shared"
-            ARBIN = "ar"
-            CCOPT = -x c
-        else
-            CCBIN = "gcc -m$B -D_GCC"
-            LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
-            ARBIN = "ar"
-            CCOPT = -Wuninitialized -Wunused
-        endif
-    endif
-    ifeq ($(COMPILER),ccache)
-        CCBIN = "ccache gcc -m$B -D_GCC"
+    else ifeq ($(COMPILER),ppc860)
+        CCBIN = "ppc_8xx-g++ -D_GCC"
+        LDBIN = "ppc_8xx-g++ -shared"
+        ARBIN = "ar"
+        CCOPT = -x c
+    else ifeq ($(COMPILER),gcc)
+        CCBIN = "gcc -m$B -D_GCC"
         LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
         ARBIN = "ar"
         CCOPT = -Wuninitialized -Wunused -fsigned-char
-    endif
-    ifeq ($(COMPILER),ccache-gcc)
-        CCBIN = "ccache gcc -m$B -D_GCC"
-        LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
-        ARBIN = "ar"
-        CCOPT = -Wuninitialized -Wunused -fsigned-char
-    endif
-    ifeq ($(COMPILER),gcc)
         OPTION += -Wdeclaration-after-statement
-        CCOPT += -fsigned-char
-    endif
-    ifeq ($(COMPILER),mipsel-gcc)
-        CCBIN = "/work/kingch/dasan/configure/build_mipsel/staging_dir/bin/mipsel-linux-gcc -D_GCC"
-        LDBIN = "/work/kingch/dasan/configure/build_mipsel/staging_dir/bin/mipsel-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/work/kingch/dasan/configure/build_mipsel/staging_dir/bin/misel-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-isis)
-        CCBIN = "/opt/q+esto/cdt/bin/arm-linux-gcc -D_GCC -fsigned-char"
-        LDBIN = "/opt/q+esto/cdt/bin/arm-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/q+esto/cdt/bin/arm-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-isis2)
-        CCBIN = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-gcc -D_GCC -mabi=aapcs-linux -fsigned-char"
-        LDBIN = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-ar"
-        AR = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-iwmmxt)
-        CCBIN = "/opt/toolchains/iwmmxt-1.0.0/bin/arm-linux-gcc -D_GCC -fsigned-char"
-        LDBIN = "/opt/toolchains/iwmmxt-1.0.0/bin/arm-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/toolchains/iwmmxt-1.0.0/bin/arm-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc)
-        CCBIN = "/usr/local/arm/3.4/bin/arm-linux-gcc -D_GCC -fsigned-char"
-        LDBIN = "/usr/local/arm/3.4/bin/arm-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/usr/local/arm/3.4/bin/arm-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-msm7200)
-        CCBIN = "/opt/toolchains/MSM7200/arm-2006q3/bin/arm-none-linux-gnueabi-gcc -D_GCC -mabi=aapcs-linux -fsigned-char"
-        LDBIN = "/opt/toolchains/MSM7200/arm-2006q3/bin/arm-none-linux-gnueabi-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/toolchains/MSM7200/arm-2006q3/bin/arm-none-linux-gnueabi-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-omap3430-2007q3-51)
-        CCBIN = "/opt/toolchains/OMAP3430/scratchbox/compilers/cortex-linux-gnueabi.2007q3-51/bin/arm-none-linux-gnueabi-gcc -D_GCC -mabi=aapcs-linux -fsigned-char"
-        LDBIN = "/opt/toolchains/OMAP3430/scratchbox/compilers/cortex-linux-gnueabi.2007q3-51/bin/arm-none-linux-gnueabi-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/toolchains/OMAP3430/scratchbox/compilers/cortex-linux-gnueabi.2007q3-51/bin/arm-none-linux-gnueabi-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-omap3430-2008q3-72)
-        CCBIN = "/opt/toolchains/OMAP3430/scratchbox/compilers/cortex-linux-gnueabi.2008q3-72/bin/arm-none-linux-gnueabi-gcc -D_GCC -mabi=aapcs-linux -fsigned-char"
-        LDBIN = "/opt/toolchains/OMAP3430/scratchbox/compilers/cortex-linux-gnueabi.2008q3-72/bin/arm-none-linux-gnueabi-gcc -shared -Wl,-Map=mapfile --hash-style=gnu"
-        ARBIN = "/opt/toolchains/OMAP3430/scratchbox/compilers/cortex-linux-gnueabi.2008q3-72/bin/arm-none-linux-gnueabi-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-android)
+    else ifeq ($(COMPILER),clang)
+        CCBIN = "clang -m$B -D_GCC"
+        LDBIN = "clang -m$B -shared -Wl,-Map=mapfile"
+        ARBIN = "ar"
+        CCOPT = -Wuninitialized -Wunused -fsigned-char
+        OPTION += -Wdeclaration-after-statement
+        CMODE_DBG = "-g -Wall -D_REENTRANT -DMDB_DEBUG $(OPTION)"
+        CMODE_REL = "-O3 -D_REENTRANT -UMDB_DEBUG $(OPTION)"
+#        SYSLIBS = "-lpthread -lsocket -lnsl -lm"
+        SYSLIBS = ""
+    else ifeq ($(COMPILER),ccache)
+        CCBIN = "ccache gcc -m$B -D_GCC"
+        LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
+        ARBIN = "ar"
+        CCOPT = -Wuninitialized -Wunused -fsigned-char
+    else ifeq ($(COMPILER),ccache-gcc)
+        CCBIN = "ccache gcc -m$B -D_GCC"
+        LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
+        ARBIN = "ar"
+        CCOPT = -Wuninitialized -Wunused -fsigned-char
+    else ifeq ($(COMPILER),arm-gcc-android)
         CCBIN = "$(ANDROID_TOOLCHAIN)/bin/arm-linux-androideabi-gcc -D_GCC -mabi=aapcs-linux -fsigned-char"
         LDBIN = "$(ANDROID_TOOLCHAIN)/bin/arm-linux-androideabi-gcc -shared -Wl,-Map=mapfile"
         ARBIN = "$(ANDROID_TOOLCHAIN)/bin/arm-linux-androideabi-ar"
         OPTION += -DANDROID_OS
-    endif
-    ifeq ($(COMPILER),i686-protector-linux-gcc)
+    else ifeq ($(COMPILER),i686-protector-linux-gcc)
         CCBIN = "/opt/toolchains/i686-protector-linux-gnu/bin/i686-protector-linux-gnu-gcc -D_GCC -fsigned-char"
         LDBIN = "/opt/toolchains/i686-protector-linux-gnu/bin/i686-protector-linux-gnu-gcc -shared -Wl,-Map=mapfile"
         ARBIN = "/opt/toolchains/i686-protector-linux-gnu/bin/i686-protector-linux-gnu-ar"
-    endif
-    ifeq ($(COMPILER),purecov)
+    else ifeq ($(COMPILER),purecov)
         CCBIN = "purecov gcc -m$B -D_GCC"
         LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
         CCOPT = 
@@ -213,10 +170,6 @@ ifeq ($(OSNAME),Linux)
     ifeq ($(COMPILER),gprof)
         CMODE_DBG = "-g -Wall -DMDB_DEBUG $(OPTION) $(CCOPT) -fvisibility=hidden"
         CMODE_REL = "-UMDB_DEBUG $(OPTION) $(CCOPT) -fvisibility=hidden"
-    endif
-    ifeq ($(COMPILER),arm-gcc-iwmmxt)
-        CMODE_DBG = "-g -Wall -DMDB_DEBUG $(OPTION) $(CCOPT)"
-        CMODE_REL = "-g -O2 -UMDB_DEBUG $(OPTION) $(CCOPT)"
     endif
 endif
 
@@ -250,21 +203,6 @@ ifeq ($(OSNAME),Cygwin)
         CCBIN = "ccache gcc -m$B -D_GCC -DCYGWIN -Dlinux"
         LDBIN = "gcc -m$B -shared -Wl,-Map=mapfile"
         CCOPT = 
-    endif
-    ifeq ($(COMPILER),mipsel-gcc)
-        CCBIN = "/work/kingch/dasan/configure/build_mipsel/staging_dir/bin/mipsel-linux-gcc -D_GCC -DCYGWIN -Dlinux"
-        LDBIN = "/work/kingch/dasan/configure/build_mipsel/staging_dir/bin/mipsel-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/work/kingch/dasan/configure/build_mipsel/staging_dir/bin/misel-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-isis)
-        CCBIN = "/opt/q+esto/cdt/bin/arm-linux-gcc -D_GCC -DCYGWIN -Dlinux -fsigned-char"
-        LDBIN = "/opt/q+esto/cdt/bin/arm-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/q+esto/cdt/bin/arm-linux-ar"
-    endif
-    ifeq ($(COMPILER),arm-gcc-isis2)
-        CCBIN = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-gcc -D_GCC -DCYGWIN -Dlinux -mabi=aapcs-linux -fsigned-char"
-        LDBIN = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-gcc -shared -Wl,-Map=mapfile"
-        ARBIN = "/opt/toolchains/arm-linux-4.1.1/bin/arm-linux-ar"
     endif
 
     ifeq ($(COMPILER),arm-gcc)
@@ -367,6 +305,12 @@ gcc:
 	@mv config.tmp config.mk
 	@echo "COMPILER = gcc" 1>> config.mk
 
+clang:
+	@rm -f config.tmp
+	@sed "/COMPILER/d" config.mk > config.tmp
+	@mv config.tmp config.mk
+	@echo "COMPILER = clang" 1>> config.mk
+
 gprof:
 	@rm -f config.tmp
 	@sed "/COMPILER/d" config.mk > config.tmp
@@ -398,48 +342,6 @@ ccache-gcc:
 	@sed "/COMPILER/d" config.mk > config.tmp
 	@mv config.tmp config.mk
 	@echo "COMPILER = ccache-gcc" 1>> config.mk
-
-arm-gcc-isis:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = arm-gcc-isis" 1>> config.mk
-
-arm-gcc-isis2:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = arm-gcc-isis2" 1>> config.mk
-
-arm-gcc-iwmmxt:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = arm-gcc-iwmmxt" 1>> config.mk
-
-mipsel-gcc:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = mipsel-gcc" 1>> config.mk
-
-arm-gcc-msm7200:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = arm-gcc-msm7200" 1>> config.mk
-
-arm-gcc-omap3430-2007q3-51:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = arm-gcc-omap3430-2007q3-51" 1>> config.mk
-
-arm-gcc-omap3430-2008q3-72:
-	@rm -f config.tmp
-	@sed "/COMPILER/d" config.mk > config.tmp
-	@mv config.tmp config.mk
-	@echo "COMPILER = arm-gcc-omap3430-2008q3-72" 1>> config.mk
 
 arm-gcc-android:
 	@rm -f config.tmp
